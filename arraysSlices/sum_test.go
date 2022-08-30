@@ -4,12 +4,15 @@ import "testing"
 
 func TestSum(t *testing.T) {
 
-	numbers := [5]int{1, 2, 3, 4, 5}
+	t.Run("collection of any size of numbers", func(t *testing.T) {
+		summation := []int{1, 2, 3}
 
-	got := Sum(numbers)
-	want := 15
+		got := Sum(summation)
+		want := 6
 
-	if got != want {
-		t.Errorf("got %d want %d given, %v", got, want, numbers)
-	}
+		if got != want {
+			t.Errorf("got %d want %d given", got, want)
+		}
+	})
+
 }
