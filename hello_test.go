@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"bytes"
+	"testing"
+)
 
 func TestHello(t *testing.T) {
 
@@ -38,6 +41,21 @@ func TestHello(t *testing.T) {
 		want := "Bonjour, jimmy"
 
 		assertCorrectMessage(t, got, want)
+
+	})
+
+	t.Run("greet function", func(t *testing.T) {
+
+		buffer := bytes.Buffer{}
+
+		Greet(&buffer, "Jimmy")
+
+		got := buffer.String()
+		want := "Hello, Jimmy"
+
+		if got != want {
+			t.Errorf("got %q want %q", got, want)
+		}
 
 	})
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 )
 
@@ -42,6 +43,10 @@ func greetingPrefix(language string) (prefix string) {
 
 	}
 	return
+}
+
+func Greet(writer *bytes.Buffer, name string) {
+	fmt.Fprintf(writer, "Hello, %s", name)
 }
 
 func main() {
